@@ -43,42 +43,42 @@ public class LSB {
     return imageLines;
   }
 
-public static String decodifica(List<String> imageLines, boolean useXor, int xorKey) {
-   StringBuilder message = new StringBuilder();
-   int messageByte = 0;
-   int bitIndex = 0;
+// public static String decodifica(List<String> imageLines, boolean useXor, int xorKey) {
+//    StringBuilder message = new StringBuilder();
+//    int messageByte = 0;
+//    int bitIndex = 0;
 
-   int i = 0;
-   while (!imageLines.get(i).equals("255")) {
-     i++;
-   }
-   i++;
+//    int i = 0;
+//    while (!imageLines.get(i).equals("255")) {
+//      i++;
+//    }
+//    i++;
 
-   for (; i < imageLines.size(); i++) {
-     String[] imagePixels = imageLines.get(i).split("\\s+");
-     for (int j = 0; j < imagePixels.length; j++) {
-       int pixel = Integer.parseInt(imagePixels[j]);
-       messageByte = (messageByte << 1) | (pixel & 1);
-       bitIndex++;
+//    for (; i < imageLines.size(); i++) {
+//      String[] imagePixels = imageLines.get(i).split("\\s+");
+//      for (int j = 0; j < imagePixels.length; j++) {
+//        int pixel = Integer.parseInt(imagePixels[j]);
+//        messageByte = (messageByte << 1) | (pixel & 1);
+//        bitIndex++;
 
-       if (bitIndex > 7) {
-         if (messageByte == 0) {
-           return message.toString();
-         }
+//        if (bitIndex > 7) {
+//          if (messageByte == 0) {
+//            return message.toString();
+//          }
 
-         message.append((char) messageByte);
-         bitIndex = 0;
-         messageByte = 0;
-       }
-     }
-   }
+//          message.append((char) messageByte);
+//          bitIndex = 0;
+//          messageByte = 0;
+//        }
+//      }
+//    }
 
-   if (useXor) {
-     for (int j = 0; j < message.length(); j++) {
-       message.setCharAt(j, (char) ((message.charAt(j) & 0xFF) ^ xorKey));
-     }
-   }
+//    if (useXor) {
+//      for (int j = 0; j < message.length(); j++) {
+//        message.setCharAt(j, (char) ((message.charAt(j) & 0xFF) ^ xorKey));
+//      }
+//    }
    
-   return message.toString();
- }
+//    return message.toString();
+//  }
 }
