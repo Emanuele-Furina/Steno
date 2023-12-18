@@ -24,9 +24,7 @@ public class Main {
 
         List<String> imageLines = LettorePGM.leggi(inputFileName);
         byte[] messageBytes = message.getBytes();
-        for (int i = 0; i < messageBytes.length; i++) {
-            System.out.println(messageBytes[i]);
-        }
+
         Verifica.calcolaBit(messageBytes, imageLines);
         List<String> stegoImage = LSB.incorpora(imageLines, messageBytes, usaXor, keyXor);
         Scrittore.scrivifile(outputFileName, stegoImage);
