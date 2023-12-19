@@ -1,7 +1,7 @@
 # Divisioni
 
-* Compo: Verifica + metà LSB
+* Compo: Verifica + Lettura
 
-* Giulio: Main, Scrittore + altra metà LSB
+* Giulio: Main + Scrittore
 
-* Fury: Lettore, XOR
+* Fury: LSB + XOR
